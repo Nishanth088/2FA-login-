@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>🎉 Welcome, {{ email }}</h1>
+    <p>You are logged in with 2FA.</p>
+    <a href="{{ url_for('logout') }}"><button>Logout</button></a>
+  </div>
+</body>
+</html>
