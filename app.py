@@ -4,17 +4,23 @@ import random, json, os
 app = Flask(__name__)
 app.secret_key = "supersecretkey"
 
-# Load users from file
+# Load users from file (line by line)
 def load_users():
+    users = {}
     if os.path.exists("users.json"):
         with open("users.json", "r") as f:
-            return json.load(f)
-    return {}
+            for line in f:
+                if line.strip():
+                    record = json.loads(line.strip())
+                    users[record["email"]] = {"password": record["password"]}
+    return users
 
-# Save users to file
+# Save users to file (line by line)
 def save_users(users):
     with open("users.json", "w") as f:
-        json.dump(users, f)
+        for email, data in users.items():
+            record = {"email": email, "password": data["password"]}
+            f.write(json.dumps(record) + "\n")
 
 @app.route("/")
 def home():
