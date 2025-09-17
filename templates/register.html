@@ -17,9 +17,24 @@
     <form method="POST">
       <input type="email" name="email" placeholder="Enter email" required>
       <input type="password" name="password" placeholder="Enter password" required>
+      <input type="password" name="confirm_password" placeholder="Confirm password" required>
       <button type="submit">Register</button>
     </form>
     <a href="{{ url_for('login') }}">Already have an account? Login</a>
   </div>
+
+  <script>
+    // Basic client-side check
+    const form = document.querySelector("form");
+    form.addEventListener("submit", function (e) {
+      const password = form.querySelector("input[name='password']").value;
+      const confirm = form.querySelector("input[name='confirm_password']").value;
+
+      if (password !== confirm) {
+        e.preventDefault();
+        alert("Passwords do not match!");
+      }
+    });
+  </script>
 </body>
 </html>

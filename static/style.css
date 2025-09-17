@@ -1,108 +1,137 @@
+/* ===== Global Styles ===== */
 body {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #222;
+}
+
+/* ===== Card Container ===== */
+.container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2.5rem;
+  border-radius: 18px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  width: 400px;
+  max-width: 95%;
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.7s ease-out;
+}
+
+/* ===== Headings ===== */
+h1 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1e3c72;
+  letter-spacing: -0.5px;
+}
+
+/* ===== Flash Messages ===== */
+.messages {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.2rem;
+}
+
+.messages li {
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.messages .success {
+  background: #e8f9f0;
+  color: #0f5132;
+  border: 1px solid #badbcc;
+}
+
+.messages .error {
+  background: #fdeaea;
+  color: #842029;
+  border: 1px solid #f5c2c7;
+}
+
+.messages .info {
+  background: #e6f5fb;
+  color: #055160;
+  border: 1px solid #b6effb;
+}
+
+/* ===== Inputs ===== */
+input {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  margin: 0.6rem 0;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  transition: all 0.25s ease;
+}
+
+input:focus {
+  border-color: #2a5298;
+  box-shadow: 0 0 8px rgba(42, 82, 152, 0.4);
+  outline: none;
+}
+
+/* ===== Buttons ===== */
+button {
+  width: 100%;
+  padding: 1rem;
+  margin-top: 0.8rem;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* ===== Links ===== */
+a {
+  display: inline-block;
+  margin-top: 1.2rem;
+  text-decoration: none;
+  color: #2575fc;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #6a11cb;
+  text-decoration: underline;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
   }
-  
-  .container {
-    background: #fff;
-    padding: 2.5rem;
-    border-radius: 20px;
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    width: 380px;
-    max-width: 90%;
-    animation: fadeIn 0.6s ease-in-out;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  h1 {
-    margin-bottom: 1rem;
-    color: #222;
-  }
-  
-  .messages {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 1rem;
-  }
-  
-  .messages li {
-    padding: 0.7rem;
-    border-radius: 10px;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-  }
-  
-  .messages .success {
-    background: #e6ffed;
-    color: #0f5132;
-    border: 1px solid #badbcc;
-  }
-  
-  .messages .error {
-    background: #f8d7da;
-    color: #842029;
-    border: 1px solid #f5c2c7;
-  }
-  
-  .messages .info {
-    background: #cff4fc;
-    color: #055160;
-    border: 1px solid #b6effb;
-  }
-  
-  input {
-    width: 100%;
-    padding: 0.9rem;
-    margin: 0.6rem 0;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    transition: 0.3s;
-  }
-  
-  input:focus {
-    border-color: #2575fc;
-    box-shadow: 0 0 6px rgba(37, 117, 252, 0.4);
-    outline: none;
-  }
-  
-  button {
-    width: 100%;
-    padding: 0.9rem;
-    margin-top: 0.6rem;
-    border: none;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  
-  button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  }
-  
-  a {
-    display: inline-block;
-    margin-top: 1rem;
-    text-decoration: none;
-    color: #2575fc;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
+}
